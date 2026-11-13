@@ -1,0 +1,684 @@
+:root {
+    color-scheme: light;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f7f8fb;
+    color: #111827;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+button {
+    cursor: pointer;
+}
+
+.app-shell {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+header h1 {
+    margin: 0 0 8px;
+}
+
+header p {
+    margin: 0 0 12px;
+    color: #4b5563;
+}
+
+.capabilities-panel {
+    background: linear-gradient(135deg, #f0f9ff, #f5f3ff, #fdf4ff);
+    border: 1px solid #e0e7ff;
+}
+
+.capabilities-panel h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #1e1b4b;
+}
+
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+}
+
+.capability-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 18px;
+    transition: box-shadow 0.2s;
+}
+
+.capability-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.capability-icon {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+}
+
+.capability-card h3 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    color: #1e1b4b;
+}
+
+.capability-what {
+    margin: 0 0 8px;
+    font-size: 0.85rem;
+    color: #374151;
+    line-height: 1.5;
+}
+
+.capability-how {
+    margin: 0 0 8px;
+    font-size: 0.82rem;
+    color: #4b5563;
+    line-height: 1.5;
+    padding: 8px 10px;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+.capability-how code {
+    background: #e0e7ff;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #3730a3;
+}
+
+.capability-why {
+    margin: 0 0 10px;
+    font-size: 0.82rem;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.capability-guard {
+    font-size: 0.8rem;
+    color: #6b7280;
+    padding: 8px 10px;
+    background: #fefce8;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    line-height: 1.5;
+}
+
+.capability-guard strong {
+    color: #92400e;
+}
+
+.panel,
+.output-grid {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 16px;
+}
+
+select,
+textarea {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    padding: 12px;
+    font: inherit;
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.action-group {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.force-action-select {
+    border: 1px solid #d1d5db;
+    border-radius: 0 12px 12px 0;
+    padding: 12px 10px;
+    font-size: 0.8rem;
+    background: #f9fafb;
+    color: #4b5563;
+    min-width: 140px;
+}
+
+.action-group button {
+    border-radius: 12px 0 0 12px;
+}
+
+button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.error {
+    color: #b91c1c;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.output-grid article {
+    margin-bottom: 18px;
+}
+
+.output-grid h2 {
+    margin-top: 0;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    background: #f3f4f6;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+footer {
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+/* Config row */
+
+.config-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.config-label {
+    margin-bottom: 0;
+    max-width: 200px;
+}
+
+.config-label select {
+    margin-top: 4px;
+}
+
+.role-badge {
+    font-size: 0.85rem;
+    color: #6b7280;
+    padding: 8px 14px;
+    background: #f3f4f6;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+/* Guardrail panel */
+
+.guardrail-panel {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.guardrail-pass {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+.guardrail-flagged {
+    background: #fffbeb;
+    border-color: #fde68a;
+}
+
+.guardrail-panel h4 {
+    margin: 0 0 8px;
+    font-size: 0.9rem;
+}
+
+.guardrail-summary {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #16a34a;
+}
+
+.guardrail-check {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.guardrail-check:last-child {
+    border-bottom: none;
+}
+
+.guardrail-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    padding-top: 2px;
+}
+
+.guardrail-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.guardrail-layer {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    font-weight: 600;
+}
+
+.guardrail-rule {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.guardrail-message {
+    margin: 2px 0 0;
+    font-size: 0.82rem;
+    color: #4b5563;
+    line-height: 1.4;
+}
+
+.guardrail-blocked {
+    background: #fef2f2;
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin: 4px 0;
+}
+
+.guardrail-blocked .guardrail-rule {
+    color: #b91c1c;
+}
+
+.guardrail-warning {
+    background: #fffbeb;
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin: 4px 0;
+}
+
+.guardrail-warning .guardrail-rule {
+    color: #d97706;
+}
+
+.guardrail-info {
+    background: #eff6ff;
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin: 4px 0;
+}
+
+.guardrail-info .guardrail-rule {
+    color: #2563eb;
+}
+
+/* Approval banner */
+
+.approval-banner {
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: #fef3c7;
+    border: 1px solid #fbbf24;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #92400e;
+}
+
+/* Demo panel */
+
+.demo-panel {
+    background: #fefce8;
+    border: 2px dashed #fbbf24;
+}
+
+.demo-panel h2 {
+    margin-top: 0;
+}
+
+.demo-description {
+    color: #78716c;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.demo-scenarios {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.demo-layer h3 {
+    font-size: 0.9rem;
+    margin: 0 0 8px;
+    color: #57534e;
+}
+
+.demo-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.demo-btn {
+    background: #92400e;
+    color: #fef3c7;
+    font-size: 0.8rem;
+    padding: 8px 14px;
+    border-radius: 8px;
+}
+
+.demo-btn:hover {
+    background: #78350f;
+}
+
+.demo-result {
+    margin-top: 20px;
+    border-top: 1px solid #fde68a;
+    padding-top: 16px;
+}
+
+.demo-result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.demo-result-header h3 {
+    margin: 0;
+}
+
+.demo-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge-pass {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge-fail {
+    background: #fecaca;
+    color: #991b1b;
+}
+
+.demo-section {
+    margin-bottom: 16px;
+}
+
+.demo-section h4 {
+    font-size: 0.85rem;
+    margin: 0 0 6px;
+    color: #78716c;
+}
+
+.demo-output {
+    background: #1c1917;
+    color: #fef3c7;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Workflow panel */
+
+.workflow-panel {
+    background: linear-gradient(135deg, #f0fdf4, #ecfdf5, #f0fdfa);
+    border: 1px solid #a7f3d0;
+}
+
+.workflow-panel h2 {
+    margin-top: 0;
+    color: #064e3b;
+}
+
+.workflow-description {
+    color: #374151;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.workflow-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.workflow-card {
+    background: #ffffff;
+    border: 1px solid #d1fae5;
+    border-radius: 14px;
+    padding: 18px;
+    transition: box-shadow 0.2s;
+}
+
+.workflow-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.workflow-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.workflow-card-header h3 {
+    margin: 0;
+    color: #064e3b;
+    font-size: 1rem;
+}
+
+.workflow-steps-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #d1fae5;
+    color: #065f46;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.workflow-card-desc {
+    margin: 0 0 12px;
+    font-size: 0.85rem;
+    color: #374151;
+    line-height: 1.5;
+}
+
+.workflow-step-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 14px;
+}
+
+.workflow-step-tag {
+    font-size: 0.78rem;
+    color: #4b5563;
+    padding: 4px 10px;
+    background: #f0fdf4;
+    border-radius: 6px;
+    border: 1px solid #d1fae5;
+}
+
+.workflow-card button {
+    width: 100%;
+    background: #059669;
+    font-size: 0.85rem;
+    padding: 10px 14px;
+}
+
+.workflow-card button:hover:not(:disabled) {
+    background: #047857;
+}
+
+.workflow-card button:disabled {
+    background: #9ca3af;
+}
+
+/* Workflow result */
+
+.workflow-result {
+    margin-top: 20px;
+    border-top: 1px solid #a7f3d0;
+    padding-top: 16px;
+}
+
+.workflow-result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.workflow-result-header h3 {
+    margin: 0;
+    color: #064e3b;
+    text-transform: capitalize;
+}
+
+.workflow-status-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.workflow-steps-result {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.workflow-step-result {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.workflow-step-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.workflow-step-number {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #dbeafe;
+    color: #1e40af;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.workflow-step-header h4 {
+    margin: 0;
+    color: #1e40af;
+    font-size: 0.9rem;
+}
+
+.workflow-step-data {
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin-bottom: 10px;
+}
+
+/* Danger workflow card */
+
+.workflow-card-danger {
+    border-color: #fecaca;
+    background: #fff5f5;
+}
+
+.workflow-card-danger:hover {
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.08);
+}
+
+.workflow-card-danger h3 {
+    color: #991b1b;
+}
+
+.workflow-steps-badge-danger {
+    background: #fecaca;
+    color: #991b1b;
+}
+
+.workflow-step-tag-danger {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #991b1b;
+    font-weight: 600;
+}
+
+.btn-danger {
+    background: #dc2626;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background: #b91c1c;
+}
+
+.btn-danger:disabled {
+    background: #9ca3af;
+}
